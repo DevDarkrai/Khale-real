@@ -1,0 +1,17 @@
+services:
+  - type: web
+    name: kahle-psych-kompass
+    runtime: python
+    buildCommand: pip install -r requirements.txt
+    startCommand: python start.py --no-browser
+    envVars:
+      - key: ANTHROPIC_API_KEY
+        sync: false          # paste your key in the Render dashboard — never commit it
+      - key: JWT_SECRET
+        generateValue: true  # Render auto-generates a secure random value
+      - key: DB_PATH
+        value: /data/ded_platform.db
+    disk:
+      name: kompass-db
+      mountPath: /data
+      sizeGB: 1

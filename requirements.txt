@@ -1,0 +1,5 @@
+# KAHLE Psych Kompass — Python dependencies
+# Railway installs these automatically via pip install -r requirements.txt
+
+anthropic>=0.25.0
+python-dotenv>=1.0.0

@@ -1,0 +1,27 @@
+# Environment — never commit secrets
+.env
+
+# Python
+__pycache__/
+*.py[cod]
+*.pyo
+*.pyd
+.Python
+*.egg-info/
+dist/
+build/
+.eggs/
+
+# Logs & exports
+logs/*.log
+exports/
+
+# Database (local dev only — prod DB lives on Render's persistent disk)
+# NOTE: ded_platform.db IS committed so Render has data on first deploy.
+# Only ignore the WAL/SHM journal files created during operation.
+db/*.db-wal
+db/*.db-shm
+
+# OS
+.DS_Store
+Thumbs.db
