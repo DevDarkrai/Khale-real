@@ -16,7 +16,12 @@ import socket
 import subprocess
 from pathlib import Path
 
-BASE = Path(__file__).parent
+BASE = Path(__file__).resolve().parent
+
+# ── Always run from the project root so relative paths work on any platform ──
+os.chdir(BASE)
+if str(BASE) not in sys.path:
+    sys.path.insert(0, str(BASE))
 
 # ── Render persistent-disk bootstrap ─────────────────────────────────────────
 # On Render, DB_PATH points to /data/ded_platform.db (the mounted disk).
